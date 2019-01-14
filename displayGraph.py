@@ -1,5 +1,5 @@
 import networkx as nx
-import matplotlib.pyplot as plot
+import matplotlib as plot
 
 outputData = open("outputData.txt", "r")
 

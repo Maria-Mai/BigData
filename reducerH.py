@@ -27,10 +27,10 @@ for line in sys.stdin:
         current_count += count
     else:
         if(current_character_pair):
-            print('%s\t%s' % (current_character_pair, current_count))
+            print('%s\t%s\t%d' % (current_character_pair[0], current_character_pair[1], current_count))
         current_count = count
         current_character_pair = character_pair
 
 # do not forget to output the last character_pair if needed!
 if(current_character_pair == character_pair):
-    print('%s\t%s\t&s' % (current_character_pair[0], current_character_pair[1], current_count))
+    print('%s\t%s\t%d' % (current_character_pair[0], current_character_pair[1], current_count))
