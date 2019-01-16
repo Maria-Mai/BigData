@@ -1,6 +1,6 @@
 from itertools import combinations
 
-formattedHarry = open("formattedHarry.txt", "r").read()
+formattedHarry = open("formattedHarry.txt", mode="r", encoding="UTF-8").read()
 formattedHarry = formattedHarry.split(".")
 
 characterList = ["Harry", "Ron", "Hermione", "Ginny", "Neville", "Luna",

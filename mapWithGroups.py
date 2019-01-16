@@ -1,6 +1,6 @@
 from itertools import combinations
 
-formattedHarry = open("formattedHarry.txt", "r").read()
+formattedHarry = open("formattedHarry.txt", mode="r", encoding="UTF-8").read()
 formattedHarry = formattedHarry.split(".")
 
 characterList = ["Harry", "Ron", "Hermione", "Ginny", "Neville", "Luna",
@@ -10,8 +10,19 @@ characterList = ["Harry", "Ron", "Hermione", "Ginny", "Neville", "Luna",
 
 characterList = list(map(lambda x:x.lower(), characterList))
 
-for sentence in formattedHarry:
-    for character_pair in combinations(characterList,2):
-        if((character_pair[0] in sentence) and (character_pair[1] in sentence)):
-            print('%s\t%s\t%s' % (character_pair[0], character_pair[1], 1))
+# Schlüsselpaar [i,j] wird ersetzt durch [I,J]. Teile n Charaktere in g Gruppen
+# mit je n/g Charakterpaaren.
+character_pairs = list(combinations(characterList, 2))
+
+n = len(character_pairs) # 300
+g = 5           
+print(n/g)  # 60
+for I in range(g):  
+    for J in range(g):
+        if (I is not J):
+            print((I, J), (character_pairs[I]))
+        else:
+            continue
+
+
 
