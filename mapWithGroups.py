@@ -1,26 +1,30 @@
 from itertools import combinations
+import re
 
 formattedHarry = open("formattedHarry.txt", mode="r", encoding="UTF-8").read()
-formattedHarry = formattedHarry.split(".") #6137 sätze #TODO  mr. mrs. entfernen und !? hinzufügen
+formattedHarry = re.sub(r'mr\.|mrs\.|ms\.', '', formattedHarry)
+formattedHarry = re.split(r'[.?!]\s*', formattedHarry) #7228 sätze
 
-characterList = ["Harry", "Ron", "Hermione", "Ginny", "Neville", "Luna",
+characterList = ["Harry", "Ron", "Hermione", "Ginny", "Neville",
                  "James", "Lily", "Malfoy", "Hagrid", "Dumbledore", "Voldemort",
                  "Sirius", "Remus", "Bellatrix", "Snape", "McGonagall", "Fred", "George",
-                 "Arthur", "Molly", "Bill", "Fleur", "Horace", "Umbridge"]
+                 "Arthur", "Molly", "Bill", "Fleur", "Horace", "Umbridge", "Vernon",
+                 "Dudley", "Scabbers", "Petunia", "Ollivander", "Percy", "Gregory",
+                 "Filch"]
 
 characterList = list(map(lambda x:x.lower(), characterList))
 allCharacterCombinations = list(combinations(characterList,2))
 
-# g = 1000
-n = len(formattedHarry) # n = anzahl (6137) sätze
+g = 1000
+n = len(formattedHarry) # n = anzahl  sätze
 
-# I = int(n/g) #anzahl gruppen (gerade 5)
-# J = int(n/g) #anzahl gruppen (gerade 5)
+#I = int(n/g) #anzahl gruppen (gerade 5)
+#J = int(n/g) #anzahl gruppen (gerade 5)
 
 # # keine Ahnung ob das so richtig ist, aber besser bekomm ich es nicht hin
 
-# #für alle sätze
-# for sentence in formattedHarry:
+#für alle sätze
+#for sentence in formattedHarry:
 #     #alle combos von I und J
 #     for i in range(I):
 #         for j in range(J):
@@ -40,6 +44,7 @@ for characterCombination in allCharacterCombinations:
 # print(characterDictionary)
 # Laufvariable mit if(): break
 
+"""
 for J in range(g):
     for sentence in formattedHarry[ J*(int(n/g)) : (J+1)*int(n/g)-1 ]: # hier nochmal überprüfen
         for characterCombination in allCharacterCombinations:
@@ -49,3 +54,4 @@ for J in range(g):
     print(characterDictionary)
 
 print(characterDictionary)
+"""

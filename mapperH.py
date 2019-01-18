@@ -1,12 +1,16 @@
 from itertools import combinations
+import re
 
 formattedHarry = open("formattedHarry.txt", mode="r", encoding="UTF-8").read()
-formattedHarry = formattedHarry.split(".")
+formattedHarry = re.sub(r'mr\.|mrs\.|ms\.', '', formattedHarry)
+formattedHarry = re.split(r'[.?!]\s*', formattedHarry) #7228 sätze
 
-characterList = ["Harry", "Ron", "Hermione", "Ginny", "Neville", "Luna",
+characterList = ["Harry", "Ron", "Hermione", "Ginny", "Neville",
                  "James", "Lily", "Malfoy", "Hagrid", "Dumbledore", "Voldemort",
                  "Sirius", "Remus", "Bellatrix", "Snape", "McGonagall", "Fred", "George",
-                 "Arthur", "Molly", "Bill", "Fleur", "Horace", "Umbridge"]
+                 "Arthur", "Molly", "Bill", "Fleur", "Horace", "Umbridge", "Vernon",
+                 "Dudley", "Scabbers", "Petunia", "Ollivander", "Percy", "Gregory",
+                 "Filch"]
 
 characterList = list(map(lambda x:x.lower(), characterList))
 

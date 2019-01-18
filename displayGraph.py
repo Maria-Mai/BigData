@@ -1,10 +1,9 @@
 import networkx as nx
-import matplotlib as plot
+import matplotlib.pyplot as plot
 
 outputData = open("outputData.txt", "r")
 
-charList = []
-countList = []
+characterWeightDict = {}
 
 for line in outputData:
     character1, character2, count = line.split()
@@ -20,15 +19,21 @@ for line in outputData:
         continue
 
     if(count > 0):
-        charList.append(character_pair)
-        countList.append(count)
+        characterWeightDict[character_pair] = count
 
 aGraph = nx.Graph()
-aGraph.add_edges_from(charList)
 
-nx.draw(aGraph,
-        width=[(weight / 2) ** 0.5 for weight in countList],
-        with_labels=True, edge_color="green",
+for characterWeight in characterWeightDict:
+    print(characterWeightDict[characterWeight])
+    aGraph.add_edge(characterWeight[0], characterWeight[1], color='green', weight=characterWeightDict[characterWeight]/20)
+
+edges = aGraph.edges()
+weights = [aGraph[u][v]['weight'] for u,v in edges]
+
+pos = nx.circular_layout(aGraph)
+nx.draw(aGraph, pos,
+        width= weights,
+        with_labels=True,
         node_color="lightgrey",
         node_shape="o",
         font_size=10,
