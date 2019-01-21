@@ -27,7 +27,7 @@ for line in sys.stdin:
     if(current_character_pair == character_pair):
         current_count += count
     else:
-        #print the character pair and its 
+        #print the character pair and its number of occurence in the book
         if(current_character_pair):
             print('%s\t%s\t%d' % (current_character_pair[0], current_character_pair[1], current_count))
         current_count = count

@@ -1,8 +1,10 @@
 import networkx as nx
 import matplotlib.pyplot as plot
 
+#read the output data of the reducer
 outputData = open("outputData.txt", "r")
 
+#dictionary for the characters and their occurence number
 characterWeightDict = {}
 
 for line in outputData:
@@ -21,15 +23,19 @@ for line in outputData:
     if(count > 0):
         characterWeightDict[character_pair] = count
 
+#create a graph
 aGraph = nx.Graph()
 
+#add the occurence number (weight) and the edges to the graph
 for characterWeight in characterWeightDict:
-    print(characterWeightDict[characterWeight])
     aGraph.add_edge(characterWeight[0], characterWeight[1], color='green', weight=characterWeightDict[characterWeight]/20)
 
+#get the edges
 edges = aGraph.edges()
+#get the weights
 weights = [aGraph[u][v]['weight'] for u,v in edges]
 
+#create the graph layout
 pos = nx.circular_layout(aGraph)
 nx.draw(aGraph, pos,
         width= weights,
@@ -40,4 +46,5 @@ nx.draw(aGraph, pos,
         font_color="black",
         alpha=0.9)
 
+#show the graph
 plot.show()
