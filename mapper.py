@@ -2,7 +2,7 @@ from itertools import combinations
 import re
 
 formattedHarry = open("formattedHarry.txt", mode="r", encoding="UTF-8").read()
-formattedHarry = re.sub(r'mr\.|mrs\.|ms\.', '', formattedHarry)
+#formattedHarry = re.sub(r'mr\.|mrs\.|ms\.', '', formattedHarry)
 formattedHarry = re.split(r'[.?!]\s*', formattedHarry) #7228 sätze
 
 characterList = ["Harry", "Ron", "Hermione", "Ginny", "Neville",
