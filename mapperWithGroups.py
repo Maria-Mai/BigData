@@ -3,7 +3,7 @@ import re
 
 formattedHarry = open("formattedHarry.txt", mode="r", encoding="UTF-8").read()
 formattedHarry = re.sub(r'mr\.|mrs\.|ms\.', '', formattedHarry)
-formattedHarry = re.split(r'[.?!]\s*', formattedHarry) #7228 sätze
+formattedHarry = re.split(r'[.?!]\s*', formattedHarry)
 
 characterList = ["Harry", "Ron", "Hermione", "Ginny", "Neville",
                  "James", "Lily", "Malfoy", "Hagrid", "Dumbledore", "Voldemort",
@@ -15,26 +15,10 @@ characterList = ["Harry", "Ron", "Hermione", "Ginny", "Neville",
 characterList = list(map(lambda x: x.lower(), characterList))
 allCharacterCombinations = list(combinations(characterList, 2))
 
-g = 1000
-n = len(formattedHarry) # n = anzahl  sätze
-
-#I = int(n/g) #anzahl gruppen (gerade 5)
-#J = int(n/g) #anzahl gruppen (gerade 5)
-
-# # keine Ahnung ob das so richtig ist, aber besser bekomm ich es nicht hin
-
-#für alle sätze
-#for sentence in formattedHarry:
-#     #alle combos von I und J
-#     for i in range(I):
-#         for j in range(J):
-#             #wenn paar in satz, dann ausgeben
-#             for k in range(len(allCharacterCombinations)-1):
-#                 if((i != j) and (allCharacterCombinations[k][0] in sentence) and (allCharacterCombinations[k][1] in sentence)):
-#                     print((i, j), (sentence, allCharacterCombinations[k]))
-
-# Wir teilen unseren Datensatz (Bsp: Harry Potter - Stein der Weisen) mit n Sätzen (6137) in g Gruppen.
-g = 5  # Anzahl der zur Verfügung stehenden Rechner
+# N - Anzahl der Sätze
+n = len(formattedHarry)
+# g - Anzahl der Gruppen
+g = 5  
 
 start = 0
 for J in range(g):
