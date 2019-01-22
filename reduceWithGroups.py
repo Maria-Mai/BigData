@@ -6,7 +6,7 @@ current_count = 0
 # input comes from STDIN
 for line in sys.stdin:
     # parse the input we got from mapper.py
-    character1, character2, count = line.split(" ")
+    character1, character2, count = line.split()
     character_pair = (character1, character2)
     
     count = int(count)
