@@ -1,10 +1,13 @@
+#coding=utf-8
 from itertools import combinations
 import re
 import sys
 
 formattedHarry = ""
 for line in sys.stdin:
+    uline = line.decode('utf-8')
     formattedHarry = formattedHarry +line
+    
 #open the preformatted text
 #formattedHarry = open("formattedHarry.txt", mode="r", encoding="UTF-8").read()
 #split it for every sentence into an array
