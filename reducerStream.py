@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 # example usage w/o hadoop: cat harryPotter.txt | python.exe mapperStream.py | sort | python.exe reducerStream.py
 # example usage w hadoop: cat harryPotter.txt | python.exe mapperStream.py | python.exe reducerStream.py
 
