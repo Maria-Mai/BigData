@@ -9,7 +9,7 @@ import sys
 
 def read_mapper_output(file):
     for line in file:
-        yield line.split()
+        yield line.split("\t")
 
 def main():
     data = read_mapper_output(sys.stdin)
