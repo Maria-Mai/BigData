@@ -7,14 +7,11 @@ formattedHarry = ""
 for line in sys.stdin:
     uline = line.decode('utf-8')
     formattedHarry = formattedHarry +line
-    print("Hi")
-    
+
 #open the preformatted text
 #formattedHarry = open("formattedHarry.txt", mode="r", encoding="UTF-8").read()
 #split it for every sentence into an array
-print("huhu")
 formattedHarry = re.split(r'[.?!]\s*', formattedHarry) #7228 sätze
-print("huhu")
 
 #character list of all characters that you want to look at later
 characterList = ["Harry", "Ron", "Hermione", "Ginny", "Neville",
@@ -29,7 +26,6 @@ characterList = list(map(lambda x:x.lower(), characterList))
 #create a list with all character pairs
 character_pair_list = list(combinations(characterList,2))
 
-print("huhu")
 #for every sentece look which character pairs are in it
 for sentence in formattedHarry:
     for character_pair in character_pair_list:

@@ -9,21 +9,19 @@ for line in sys.stdin:
     # remove leading and trailing whitespace
     line = line.strip()
 
+    print(line)
+    # parse the input we got from mapper.py
+    character1, character2, count = line.split()
+
     try:
-        # parse the input we got from mapper.py
-        character1, character2, count = line.split()
+        #make a tuple of to characters
+        character_pair = (character1,character2)
+    except ValueError:
+        continue
 
-        try:
-            #make a tuple of to characters
-            character_pair = (character1,character2)
-        except ValueError:
-            continue
-
-        try:
-            count = int(count)
-        except ValueError:
-            continue
-    except:
+    try:
+        count = int(count)
+    except ValueError:
         continue
 
     # after group by key
