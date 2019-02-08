@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+
+from operator import itemgetter
 import sys
 
 current_character_pair = None
@@ -9,7 +12,6 @@ for line in sys.stdin:
     # remove leading and trailing whitespace
     line = line.strip()
 
-    print(line)
     # parse the input we got from mapper.py
     character1, character2, count = line.split()
 
@@ -30,10 +32,11 @@ for line in sys.stdin:
     else:
         #print the character pair and its number of occurence in the book
         if(current_character_pair):
-            print('%s\t%s\t%d' % (current_character_pair[0], current_character_pair[1], current_count))
+            print '%s\t%s\t%d' % (current_character_pair[0], current_character_pair[1], current_count)
         current_count = count
         current_character_pair = character_pair
 
 # do not forget to output the last character_pair if needed!
 if(current_character_pair == character_pair):
-    print('%s\t%s\t%d' % (current_character_pair[0], current_character_pair[1], current_count))
+    #print current_character_pair
+    print '%s\t%s\t%d' % (current_character_pair[0], current_character_pair[1], current_count)
