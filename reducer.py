@@ -37,6 +37,6 @@ for line in sys.stdin:
         current_character_pair = character_pair
 
 # do not forget to output the last character_pair if needed!
-if(current_character_pair == character_pair):
+#if(current_character_pair == character_pair):
     #print current_character_pair
-    print '%s\t%s\t%d' % (current_character_pair[0], current_character_pair[1], current_count)
+   # print '%s\t%s\t%d' % (current_character_pair[0], current_character_pair[1], current_count)
