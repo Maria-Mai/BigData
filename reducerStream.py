@@ -15,7 +15,7 @@ def main():
     data = read_mapper_output(sys.stdin)
     for (keyword_1, keyword_2), group in groupby(data, itemgetter(0, 1)):
         total_count = sum(int(count) for keyword_1, keyword_2, count in group)
-        print(keyword_1, keyword_2, total_count)
+        print(keyword_1, keyword_2, total_count, sep="\t")
 
 if __name__ == "__main__":
     main()

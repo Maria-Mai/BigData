@@ -20,7 +20,7 @@ def main():
     for sentence in data:
         for keyword_pair in keywords:
             if ( (keyword_pair[0] in sentence) and (keyword_pair[1] in sentence) ):
-                print(keyword_pair[0], keyword_pair[1], 1)
+                print(keyword_pair[0], keyword_pair[1], 1, sep="\t")
 
 if __name__ == "__main__":
     main()
